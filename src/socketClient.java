@@ -17,7 +17,7 @@ public class socketClient {
 		try {
 			Socket socket = new Socket(host, port);
 
-		 while (true) {
+//		 while (true) {
 //			Socket socket = new Socket(host, port);
 			OutputStream os = socket.getOutputStream();
 			PrintWriter pw = new PrintWriter(os);
@@ -37,7 +37,7 @@ public class socketClient {
 			System.out.println(br.readLine());
 			
 		
-		 }
+//		 }
 //		
 //			socket.close();
 //			 }

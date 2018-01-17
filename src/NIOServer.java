@@ -107,9 +107,11 @@ public class NIOServer{
 
 		if (offset == 0) {
 			System.out.println("reading finish");
-//			key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-			sc.register(key.selector(), SelectionKey.OP_WRITE,
-					ByteBuffer.allocateDirect(buffsize));
+			
+//			sc.close();
+			key.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+//			sc.register(key.selector(), SelectionKey.OP_WRITE,
+//					ByteBuffer.allocateDirect(buffsize));
 		}
 
 	}
