@@ -7,8 +7,7 @@ public class test{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	 ThreadRun tr = new ThreadRun(new NIOServer(),ThreadRun.RUN);
-	 tr.start();
+
 
 	}
 }
