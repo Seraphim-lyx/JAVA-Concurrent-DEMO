@@ -71,7 +71,7 @@ public class NIOServer{
 
 	public static void serverAccept(SelectionKey key) throws IOException {
 		/**
-		 * handling socket accept for newly socket
+		 * handling socket accept for new socket
 		 */
 		ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
 		SocketChannel sc = ssc.accept();
