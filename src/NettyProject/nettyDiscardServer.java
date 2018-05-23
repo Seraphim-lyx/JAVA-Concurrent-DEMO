@@ -10,21 +10,20 @@ public class nettyDiscardServer extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) {
-		ByteBuf in = (ByteBuf)msg;
-		
-		try{
-			while(in.isReadable()){
-				System.out.println((char)in.readByte());
-				System.out.flush();
-//				System.out.println(in.forEachByte(ByteProcessor.FIND_NUL));
-			}
-				
+		// ByteBuf in = (ByteBuf)msg;
 
-		} finally{
-			ReferenceCountUtil.release(msg);
-		}
+		// try{
+		ctx.write(msg);
+//		ctx.flush();
+
+		// } finally{
+		// ReferenceCountUtil.release(msg);
+		// }
 	}
-
+	@Override
+	public void channelReadComplete(ChannelHandlerContext ctx){
+		ctx.flush();
+	}
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) { // (4)
 		// Close the connection when an exception is raised.
